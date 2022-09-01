@@ -6,9 +6,29 @@ const getFetchItem = async (valueItem) => {
 }
 
 const getApiData = (getArray) => {
-    console.log(getArray)
+    const showData = document.getElementById('wrap-items');
+    showData.innerHTML = ``;
+    for(const arra of getArray){
+        const div = document.createElement('div');
+        div.classList.add('col');
+        div.innerHTML = `
+            <div class="card">
+            <img src="${arra.strMealThumb}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">${arra.strMeal}</h5>
+                <p class="card-text">Food Origin: ${arra.strArea}</p>
+                <p class="card-text">Food Category: ${arra.strCategory}</p>
+                <button onclick="showDetails(${arra.idMeal})" class="btn btn-primary">See More</button>
+            </div>
+            </div>
+        `;
+        showData.appendChild(div);
+    }
 }
 
+const showDetails = (id) => {
+    console.log(id)
+}
 
 
 
